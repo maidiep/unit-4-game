@@ -16,6 +16,9 @@ var loss = 0;
 var win = 0;
 var previousNum = 0;
 
+
+var startAndResetGame = function () {
+    $(".crystals").empty();
 randomResult = Math.floor((Math.random() * 102) + 19);
 console.log(randomResult);
 $("#randomNumber").html(randomResult);
@@ -31,8 +34,10 @@ for (var i=0; i < 4; i++) {
     });                         
     $(".crystals").append(crystal);
 }
+}
+startAndResetGame();
 
-$(".crystal").on("click", function () {
+$(document).on("click", ".crystal", function () {
     var number = parseInt($(this).attr("data-value"));      //onClick and gets data-value
      previousNum += number;
     console.log(previousNum);
@@ -40,9 +45,18 @@ $(".crystal").on("click", function () {
         loss++;
         alert("You lose.");
         $("#losses").html("Losses: " + loss);
+        previousNum = 0;
+        startAndResetGame();
     } else if (previousNum == randomResult){
         alert("You win!");
         wins++;
         $("#wins").html("Wins: " + wins);
+        previousNum = 0;
+        startAndResetGame();
     }
 });
+
+//Reset after win or lose
+function resetGame () {
+
+}
