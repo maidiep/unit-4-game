@@ -15,9 +15,22 @@ var randomResult;
 var lose;
 var win;
 
+var randomResult = Math.floor((Math.random() * 102) + 19);
+console.log(randomResult);
+$("#randomNumber").html(randomResult);
+
 //create 4 crystals divs
 for (var i=0; i < 4; i++) {
-    var crystal = $("<div>");           //dynamically created divs
-    crystal.attr("class", 'crystal');   //gave divs class=crystals
+    var random = Math.floor((Math.random() * 12) + 1);          
+    console.log(random);                                                        
+    var crystal = $("<div>");                                  
+    crystal.attr({                                  //setting class attributes crystal and data-value             
+        "class": 'crystal',
+        "data-value": random
+    });                         
     $(".crystals").append(crystal);
 }
+
+$(".crystal").on("click", function () {
+    console.log($(this).attr("data-value"));          //onClick and gets data-value
+});
