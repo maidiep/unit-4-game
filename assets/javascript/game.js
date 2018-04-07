@@ -12,11 +12,11 @@
 // Each crystal should have a random hidden value between 1 - 12.
 
 var randomResult;
-var lose = 0;
+var loss = 0;
 var win = 0;
 var previousNum = 0;
 
-var randomResult = Math.floor((Math.random() * 102) + 19);
+randomResult = Math.floor((Math.random() * 102) + 19);
 console.log(randomResult);
 $("#randomNumber").html(randomResult);
 
@@ -37,8 +37,12 @@ $(".crystal").on("click", function () {
      previousNum += number;
     console.log(previousNum);
     if (previousNum > randomResult){
+        loss++;
         alert("You lose.");
+        $("#losses").html("Losses: " + loss);
     } else if (previousNum == randomResult){
         alert("You win!");
+        wins++;
+        $("#wins").html("Wins: " + wins);
     }
 });
