@@ -14,6 +14,7 @@
 var randomResult;
 var lose;
 var win;
+var previousNum = 0;
 
 var randomResult = Math.floor((Math.random() * 102) + 19);
 console.log(randomResult);
@@ -32,5 +33,7 @@ for (var i=0; i < 4; i++) {
 }
 
 $(".crystal").on("click", function () {
-    console.log($(this).attr("data-value"));          //onClick and gets data-value
+    var number = parseInt($(this).attr("data-value"));      //onClick and gets data-value
+     previousNum += number;
+    console.log(previousNum);
 });
