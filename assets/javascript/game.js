@@ -12,8 +12,8 @@
 // Each crystal should have a random hidden value between 1 - 12.
 
 var randomResult;
-var lose;
-var win;
+var lose = 0;
+var win = 0;
 var previousNum = 0;
 
 var randomResult = Math.floor((Math.random() * 102) + 19);
@@ -36,4 +36,9 @@ $(".crystal").on("click", function () {
     var number = parseInt($(this).attr("data-value"));      //onClick and gets data-value
      previousNum += number;
     console.log(previousNum);
+    if (previousNum > randomResult){
+        alert("You lose.");
+    } else if (previousNum == randomResult){
+        alert("You win!");
+    }
 });
