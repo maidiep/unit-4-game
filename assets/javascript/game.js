@@ -19,6 +19,12 @@ var previousNum = 0;
 
 var startAndResetGame = function () {
     $(".crystals").empty();
+    var image = [
+        "https://cdn.dribbble.com/users/913013/screenshots/3276187/1.jpg",
+        "https://cdn.dribbble.com/users/913013/screenshots/3276481/2.jpg",
+        "https://cdn.dribbble.com/users/913013/screenshots/3276736/3.jpg",
+        "https://cdn.dribbble.com/users/913013/screenshots/3277008/4.jpg"
+    ];
 randomResult = Math.floor((Math.random() * 102) + 19);
 console.log(randomResult);
 $("#randomNumber").html(randomResult);
@@ -31,7 +37,11 @@ for (var i=0; i < 4; i++) {
     crystal.attr({                                  //setting class attributes crystal and data-value             
         "class": 'crystal',
         "data-value": random
-    });                         
+    });    
+    crystal.css ({
+        "background-image":"url('" + image[i] + "')",
+        "background-size": "cover"
+    });                     
     $(".crystals").append(crystal);
 
 }
