@@ -45,7 +45,7 @@ for (var i=0; i < 4; i++) {
     $(".crystals").append(crystal);
 
 }
-$(".sum").html("Sum: " + previousNum);
+$("#sum").html(previousNum);
 
 }
 startAndResetGame();
@@ -53,19 +53,19 @@ startAndResetGame();
 $(document).on("click", ".crystal", function () {
     var number = parseInt($(this).attr("data-value"));      //onClick and gets data-value
      previousNum += number;
-     $(".sum").html("Sum: " + previousNum);
+     $("#sum").html (previousNum);
     console.log(previousNum);
    
     if (previousNum > randomResult){
         loss++;
-        alert("You lose.");
+        alert("You went over.");
         $("#losses").html("Losses: " + loss);
         previousNum = 0;
         startAndResetGame();
     } else if (previousNum == randomResult){
+        win++;
         alert("You win!");
-        wins++;
-        $("#wins").html("Wins: " + wins);
+        $("#wins").html("Wins: " + win);
         previousNum = 0;
         startAndResetGame();
     }

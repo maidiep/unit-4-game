@@ -12,6 +12,13 @@
     width: 200px;
 }
 
-/* img {
-    width: 25px;
-} */
+.well {
+    width: 90%;
+    margin-left: 70px;
+    font-size: 20px;
+}
+
+h3 {
+    margin-left: 70px;
+}
+
