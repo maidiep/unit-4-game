@@ -33,15 +33,19 @@ for (var i=0; i < 4; i++) {
         "data-value": random
     });                         
     $(".crystals").append(crystal);
+
 }
+$(".sum").html("Sum: " + previousNum);
+
 }
 startAndResetGame();
 
 $(document).on("click", ".crystal", function () {
     var number = parseInt($(this).attr("data-value"));      //onClick and gets data-value
      previousNum += number;
+     $(".sum").html("Sum: " + previousNum);
     console.log(previousNum);
-    $(".sum").html("Sum: " + previousNum);
+   
     if (previousNum > randomResult){
         loss++;
         alert("You lose.");
