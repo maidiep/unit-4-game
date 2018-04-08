@@ -41,6 +41,7 @@ $(document).on("click", ".crystal", function () {
     var number = parseInt($(this).attr("data-value"));      //onClick and gets data-value
      previousNum += number;
     console.log(previousNum);
+    $(".sum").html("Sum: " + previousNum);
     if (previousNum > randomResult){
         loss++;
         alert("You lose.");
