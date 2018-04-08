@@ -40,7 +40,7 @@ for (var i=0; i < 4; i++) {
     });    
     crystal.css ({
         "background-image":"url('" + image[i] + "')",
-        "background-size": "cover"
+        "background-size": ("no-repeat", "100% 100%")
     });                     
     $(".crystals").append(crystal);
 
