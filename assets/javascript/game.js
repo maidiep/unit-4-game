@@ -14,11 +14,11 @@
 var randomResult;
 var loss = 0;
 var win = 0;
-var previousNum = 0;
+var previousNum = 0; //random numbers from crystals use to add to get sum
 
 
 var startAndResetGame = function () {
-    $(".crystals").empty();
+    $(".crystals").empty();                     //empties crystal divs at the start of the funtion
     var image = [
         "https://cdn.dribbble.com/users/913013/screenshots/3276187/1.jpg",
         "https://cdn.dribbble.com/users/913013/screenshots/3276481/2.jpg",
@@ -33,7 +33,7 @@ $("#randomNumber").html(randomResult);
 for (var i=0; i < 4; i++) {
     var random = Math.floor((Math.random() * 12) + 1);          
     console.log(random);                                                        
-    var crystal = $("<div>");                                  
+    var crystal = $("<div>");                        //creating divs for crystals          
     crystal.attr({                                  //setting class attributes crystal and data-value             
         "class": 'crystal',
         "data-value": random
@@ -50,8 +50,8 @@ $("#sum").html(previousNum);
 }
 startAndResetGame();
 
-$(document).on("click", ".crystal", function () {
-    var number = parseInt($(this).attr("data-value"));      //onClick and gets data-value
+$(document).on("click", ".crystal", function () {               //onClick and gets data-value
+    var number = parseInt($(this).attr("data-value"));          //number converts to integer
      previousNum += number;
      $("#sum").html (previousNum);
     console.log(previousNum);
